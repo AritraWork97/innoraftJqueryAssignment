@@ -1,10 +1,10 @@
 $( document ).ready(function() {
-   $(".button-1").click(() => {
-    $('.height').stop().animate({ height: 300, opacity: 1 }, 'slow');
+   $(".section1 button").click(() => {
+    $('.section1 .height').animate({ height: 300, opacity: 1 }, 'slow');
    });
 
-   $(".button-2").click(() => {
-    $('.height-2').stop().animate({ marginLeft: 400 }, 'slow');
+   $(".section2 button").click(() => {
+    $('.section2 .height').animate({ marginLeft: 400 }, 'slow');
    });
 
    var fixmeTop = $('.full').offset().top;
@@ -25,57 +25,47 @@ $( document ).ready(function() {
        }
    });
 
-   $(".para-btn").click(() => {
-        $('.para-2').wrap("<div class='new'></div>");
+   $(".section5 button").click(() => {
+        $('.section5 p:nth-child(3)').wrap("<div class='new'></div>");
    });
 
-   $(".btn-change-value").click(() => {
-       $('#test3').val("new value");
-       $('#test3').prop('disabled', 'true');
+   $(".section9 button").click(() => {
+       $('.section9 input').val("new value");
+       $('.section9 button').prop('disabled', 'true');
    })
 
-   $(".change-background").click(() => {
-       var ele = $(".section6").find("p");
-       for(const [key, value] of Object.entries(ele)){
-           if($(value).hasClass("intro") == false) {
-               $(value).css("background-color", "red");
-               break;
-           }
-       }
+   $(".section6 button").click(() => {
+       $(".section6 p").each((index, value) => {
+        var isempty = $(value).attr('class');
+        if(isempty == null || isempty.length < 1){
+            $(value).css("background","red")
+        }
+       });
    });
 
-   $(".change-color").click(() => {
-    var ele = $(".section7").find("li");
-    for(const [key, value] of Object.entries(ele)){
-        if(($(value).text()) == 4 || ($(value).text()) == 5 || ($(value).text()) == 6){
-            $(value).css("background-color", "red");
-        }
-      }
+   $(".section7 button").click(() => {
+    $('.section7 li:nth-child(4)').css("background","red")
+    $('.section7 li:nth-child(5)').css("background","red")
+    $('.section7 li:nth-child(6)').css("background","red")
+});
+
+    $(".section8 button").click(() => {
+        $(".section8 li+li").css("border-color", "red");
     });
 
-    $(".change-color-1").click(() => {
-        var ele = $(".abc").find("li");
-        for(const [key, value] of Object.entries(ele)){
-            if(($(value).text()) != 1){
-                $(value).css("border-color", "red");
-            }
-          }
-        });
-
-    $(".tab-1").click(() => {
-        $(".tab-1-a").html("Tab 1 value is changed")
-        $(".tab-1-a").css("background-color", "coral")
+    $("#tab1").click(() => {
+        $(".tabcontent .active").text("Tab 1 value is changed")
+        $(".tabcontent .active").css("background-color", "coral")
     });
 
-    $(".tab-2").click(() => {
+    $("#tab2").click(() => {
 
-        $(".tab-1-a").html("Tab 2 value is changed")
-        $(".tab-1-a").css("background-color", "lightblue")
+        $(".tabcontent .content").text("Tab 2 value is changed")
+        $(".tabcontent .content").css("background-color", "lightblue")
     })
 
-    $('#scroll').click(function(){ 
-        $("html, body").animate({ scrollTop: 0 }, 600); 
-        return false; 
+    $('.section10 button').click(function(){ 
+        $("html").animate({ scrollTop: 0 }, 600); 
     }); 
 
 });

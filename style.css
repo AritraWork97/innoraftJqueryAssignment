@@ -22,18 +22,6 @@ button {
   width: 100px;
   margin-bottom: 15px;
 }
-
-.height-2{
-  background: #fff;
-  height: 100px;
-  width: 100px;
-  margin-bottom: 15px;
-}
-
-.div-fix {
-  position: sticky;
-  top: 10px;
-}
 .full {
     background: #314352;
     height: 50px;
